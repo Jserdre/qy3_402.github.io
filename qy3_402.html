@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>402宿舍管理系统</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- 页面标题 -->
+    <header class="mb-8">
+      <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800">402宿舍信息管理</h1>
+      <p class="text-gray-500 mt-1">宿舍成员及值日记录</p>
+    </header>
+    
+    <!-- 宿舍基本信息卡片 -->
+    <div class="bg-white rounded-lg shadow-sm p-6 mb-8 border-l-4 border-primary">
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800">沁园3号 402宿舍</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            <div>
+              <p class="text-sm text-gray-500">宿舍长</p>
+              <p class="font-medium">景俊仁</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">成员数</p>
+              <p class="font-medium">8人</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">本月评分</p>
+              <p class="font-medium text-secondary">---</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">卫生等级</p>
+              <p class="font-medium text-secondary">---</p>
+            </div>
+          </div>
+        </div>
+        
+       <img src="img/log.png" height="120px" width="120px">
+      </div>
+    </div>
+    
+    <!-- 宿舍成员表格 -->
+    <div class="bg-white rounded-lg shadow-sm mb-8 overflow-hidden">
+      <div class="p-6 border-b border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-800">宿舍成员列表</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">床位号</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">姓名</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">专业</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">班级</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">职务</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">打卡情况</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">1号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">李承志</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">冯子榕</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">3号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">张浩</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> <!--bg-yellow-100 text-yellow-800-->
+                  全勤
+                </span>
+              </td>
+            </tr>
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">4号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">蔡新宇</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+             <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">景俊仁</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">宿舍长</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+             <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">6号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">柏杨</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">252302</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+             <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">7号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">高捷</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">251301</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+             <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">8号</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">张恒</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">信息院|物联网</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">251301</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">成员</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  全勤
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- 卫生检查记录表格 -->
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div class="p-6 border-b border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-800">值日顺序表</h2>
+        <h3>值日生需要负责当天全部卫生任务</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">顺序</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">值日生</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">整改建议</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">检查日期</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">一</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">景俊仁</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">二</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">张浩</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">三</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">柏杨</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">四</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">蔡新宇</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">五</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">李承志</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">六</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">高捷</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">七</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">张恒</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+             <tbody class="bg-white divide-y divide-gray-200">
+            <tr hover:bg-gray-50 transition>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">八</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">冯子榕</td>
+              </td>
+              <td class="px-6 py-4 text-sm text-gray-500">保持良好卫生状况</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-primary">
+                <span>2025-9-15
+                </span>
+              </td>
+            </tr>
+            
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="bg-white border-t border-gray-200 mt-8 py-6">
+    <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+      <p>© 2025 402宿舍管理中心 | 宿舍长联系电话：18351969519</p>
+    </div>
+  </footer>
+
+  <script>
+    // 简单的交互效果
+    document.addEventListener('DOMContentLoaded', () => {
+      // 为表格行添加悬停效果
+      const tableRows = document.querySelectorAll('tbody tr');
+      tableRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          row.classList.add('bg-gray-50');
+        });
+        row.addEventListener('mouseleave', () => {
+          row.classList.remove('bg-gray-50');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
