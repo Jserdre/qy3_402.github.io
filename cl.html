@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CampusLink - 校园一站式服务平台</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px; 
+            margin: 0 auto;
+            background: #fff;
+            overflow: hidden;
+        }
+
+
+        .header {
+            background: linear-gradient(135deg, #4285f4, #5c8ef7);
+            color: white;
+            padding: 16px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 12px;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* 功能模块通用样式 */
+        .module {
+            margin: 15px 10px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .module-title {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .module-title-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .module-title-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .module-content {
+            padding: 15px;
+        }
+
+        /* 各模块专属配色 */
+        .icon-course {
+            background: #4285f4;
+        }
+
+        .icon-canteen {
+            background: #34a853;
+        }
+
+        .icon-bike {
+            background: #fbbc05;
+        }
+
+        .icon-washer {
+            background: #ea4335;
+        }
+
+        /* 课程模块内容 */
+        .course-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .course-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .course-info {
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 餐厅模块内容 */
+        .canteen-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .stats-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stats-num {
+            font-size: 22px;
+            font-weight: 700;
+            color: #34a853;
+        }
+
+        .stats-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .food-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .food-tag {
+            background: #e8f5e9;
+            color: #34a853;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 12px;
+        }
+
+        /* 自行车模块内容 */
+        .bike-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .bike-btn {
+            display: block;
+            width: 100%;
+            background: #fbbc05;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        /* 洗衣机模块内容 */
+        .washer-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .washer-item {
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .washer-free {
+            background: #e8f5e9;
+            border-color: #34a853;
+            color: #34a853;
+        }
+
+        .washer-busy {
+            background: #fef0f0;
+            border-color: #ea4335;
+            color: #ea4335;
+        }
+
+        .washer-num {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .washer-status {
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        /* 底部说明 */
+        .footer {
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>CampusLink 校园一站式服务</h1>
+            <p>你的校园生活好帮手</p>
+        </header>
+
+
+        <section class="module">
+            <div class="module-title">
+                <div class="module-title-icon icon-course">课</div>
+                <div class="module-title-text">课程查询</div>
+            </div>
+            <div class="module-content">
+                <div class="course-card">
+                    <div class="course-name">高等数学（上）</div>
+                    <div class="course-info">
+                        <span>时间：08:00-09:40</span>
+                        <span>地点：1号教学楼203室</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-name">大学英语（二）</div>
+                    <div class="course-info">
+                        <span>时间：10:00-11:40</span>
+                        <span>地点：3号教学楼105室</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-name">Python程序设计</div>
+                    <div class="course-info">
+                        <span>时间：14:00-15:40</span>
+                        <span>地点：实训楼508室</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="module">
+            <div class="module-title">
+                <div class="module-title-icon icon-canteen">餐</div>
+                <div class="module-title-text">餐厅实时信息</div>
+            </div>
+            <div class="module-content">
+                <div class="canteen-stats">
+                    <div class="stats-item">
+                        <div class="stats-num">86</div>
+                        <div class="stats-text">一楼当前人数</div>
+                    </div>
+                    <div class="stats-item">
+                        <div class="stats-num">52</div>
+                        <div class="stats-text">二楼当前人数</div>
+                    </div>
+                    <div class="stats-item">
+                        <div class="stats-num">28</div>
+                        <div class="stats-text">三楼当前人数</div>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size:14px; margin-bottom:8px; color:#333;">剩余餐食：</p>
+                    <div class="food-list">
+                        <span class="food-tag">麻辣香锅</span>
+                        <span class="food-tag">番茄炒蛋</span>
+                        <span class="food-tag">红烧牛肉</span>
+                        <span class="food-tag">青菜豆腐汤</span>
+                        <span class="food-tag">炸鸡排</span>
+                        <span class="food-tag">米饭</span>
+                        <span class="food-tag">馒头</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自行车模块 -->
+        <section class="module">
+            <div class="module-title">
+                <div class="module-title-icon icon-bike">车</div>
+                <div class="module-title-text">校园自行车</div>
+            </div>
+            <div class="module-content">
+                <p class="bike-info">🚲 周边500米内可租车辆：<strong>18辆</strong></p>
+                <p class="bike-info">📍 最近车辆位置：图书馆南门停车点（80米）</p>
+                <a href="javascript:;" class="bike-btn">扫码开锁</a>
+            </div>
+        </section>
+
+        <!-- 洗衣机模块 -->
+        <section class="module">
+            <div class="module-title">
+                <div class="module-title-icon icon-washer">洗</div>
+                <div class="module-title-text">宿舍楼洗衣机</div>
+            </div>
+            <div class="module-content">
+                <p style="font-size:14px; margin-bottom:10px; color:#333;">1号宿舍楼洗衣机状态：</p>
+                <div class="washer-list">
+                    <div class="washer-item washer-free">
+                        <div class="washer-num">1</div>
+                        <div class="washer-status">空闲</div>
+                    </div>
+                    <div class="washer-item washer-busy">
+                        <div class="washer-num">2</div>
+                        <div class="washer-status">使用中</div>
+                    </div>
+                    <div class="washer-item washer-free">
+                        <div class="washer-num">3</div>
+                        <div class="washer-status">空闲</div>
+                    </div>
+                    <div class="washer-item washer-free">
+                        <div class="washer-num">4</div>
+                        <div class="washer-status">空闲</div>
+                    </div>
+                    <div class="washer-item washer-busy">
+                        <div class="washer-num">5</div>
+                        <div class="washer-status">使用中</div>
+                    </div>
+                    <div class="washer-item washer-busy">
+                        <div class="washer-num">6</div>
+                        <div class="washer-status">使用中</div>
+                    </div>
+                </div>
+                <p style="font-size:12px; color:#666; margin-top:10px;">总计空闲：3台 | 总计使用中：3台</p>
+            </div>
+        </section>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            CampusLink © 2025 校园一站式服务平台 - 让校园生活更便捷
+        </footer>
+    </div>
+</body>
+</html>
